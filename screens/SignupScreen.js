@@ -1,26 +1,20 @@
+/* eslint-disable no-alert */
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-
+import React, { useContext, useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
 
-import AntDesign from 'react-native-vector-icons/AntDesign';
-
-const LoginScreen = ({ navigation }) => {
+const SignupScreen = ({ navigation }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
-    // const { login } = useContext(AuthContext);
+    const [confirmPassword, setConfirmPassword] = useState();
 
     return (
         <View style={styles.container}>
-            <Image
-                source={require('../assets/rn-social-logo.png')}
-                style={styles.logo}
-            />
-            <Text style={styles.text}>RN Social App</Text>
+            <Text style={styles.text}>Create an account</Text>
 
             <FormInput
                 labelValue={email}
@@ -40,13 +34,41 @@ const LoginScreen = ({ navigation }) => {
                 secureTextEntry={true}
             />
 
-            <FormButton
-                buttonTitle="Sign In"
-            // onPress={() => login(email, password)}
+            <FormInput
+                labelValue={confirmPassword}
+                onChangeText={userPassword => setConfirmPassword(userPassword)}
+                placeholderText="Confirm Password"
+                iconType="lock"
+                secureTextEntry={false}
             />
-            <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
-                <Text style={styles.navButtonText}>Forgot Password?</Text>
-            </TouchableOpacity>
+
+            <FormButton
+                buttonTitle="Sign Up"
+            // onPress={() => register(email, password)}
+            />
+
+            <View style={styles.textPrivate}>
+
+                <Text style={styles.color_textPrivate}>
+                    By registering, you confirm that you accept our{' '}
+                </Text>
+
+                <TouchableOpacity onPress={() => alert('Terms Clicked!')}>
+                    <Text
+                        style={[
+                            styles.color_textPrivate,
+                            { color: '#e88832' },
+                        ]}>
+                        Terms of service
+                    </Text>
+                </TouchableOpacity>
+
+                <Text style={styles.color_textPrivate}> and </Text>
+                <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
+                    Privacy Policy
+                </Text>
+
+            </View>
 
             <SocialButton
                 buttonTitle="Sign Up with Facebook"
@@ -65,17 +87,18 @@ const LoginScreen = ({ navigation }) => {
             />
 
             <TouchableOpacity
-                style={styles.forgotButton}
-                onPress={() => navigation.navigate('Signup')}>
+                style={styles.navButton}
+                onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.navButtonText}>
-                    Don't have an acount? Create here
+                    Have an account? Sign In
                 </Text>
             </TouchableOpacity>
+
         </View>
     );
 };
 
-export default LoginScreen;
+export default SignupScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -84,11 +107,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
-    },
-    logo: {
-        height: 150,
-        width: 150,
-        resizeMode: 'cover',
     },
     text: {
         fontFamily: 'Kufam-SemiBoldItalic',
@@ -99,13 +117,22 @@ const styles = StyleSheet.create({
     navButton: {
         marginTop: 15,
     },
-    forgotButton: {
-        marginVertical: 35,
-    },
     navButtonText: {
         fontSize: 18,
         fontWeight: '500',
         color: '#2e64e5',
         fontFamily: 'Lato-Regular',
+    },
+    textPrivate: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginVertical: 35,
+        justifyContent: 'center',
+    },
+    color_textPrivate: {
+        fontSize: 13,
+        fontWeight: '400',
+        fontFamily: 'Lato-Regular',
+        color: 'grey',
     },
 });
