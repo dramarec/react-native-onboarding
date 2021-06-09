@@ -1,17 +1,15 @@
-import React, { useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { AuthContext } from '../navigation/AuthProvider';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const HomeScreen = () => {
-    const { user } = useContext(AuthContext);
+const MessagesScreen = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Welcome {user?.email}</Text>
+            <Text style={styles.text}>MessagesScreen</Text>
         </View>
     );
 };
 
-export default HomeScreen;
+export default MessagesScreen;
 
 const styles = StyleSheet.create({
     container: {
