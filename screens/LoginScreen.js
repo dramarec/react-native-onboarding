@@ -5,14 +5,15 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
+import { AuthContext } from '../navigation/AuthProvider';
 
-import AntDesign from 'react-native-vector-icons/AntDesign';
+// import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    // const { login } = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
 
     return (
         <View style={styles.container}>
@@ -42,7 +43,7 @@ const LoginScreen = ({ navigation }) => {
 
             <FormButton
                 buttonTitle="Sign In"
-            // onPress={() => login(email, password)}
+                onPress={() => login(email, password)}
             />
             <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
                 <Text style={styles.navButtonText}>Forgot Password?</Text>

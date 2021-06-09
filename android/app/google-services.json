@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "954144470588",
+    "project_id": "test-rn-firebase-8339e",
+    "storage_bucket": "test-rn-firebase-8339e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954144470588:android:e1137ef5c2408930853539",
+        "android_client_info": {
+          "package_name": "com.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954144470588-8vt245il764p06s0l4f4nuasmvumec1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDawfa7C9Xfn3x1PRT46qv7VmglLjYmTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954144470588-8vt245il764p06s0l4f4nuasmvumec1i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "954144470588-p856gafbl7uk9t94604shjm5l2jn9oqm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rndrmapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954144470588:android:eec106a62109f591853539",
+        "android_client_info": {
+          "package_name": "com.testrnfirbase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954144470588-8vt245il764p06s0l4f4nuasmvumec1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDawfa7C9Xfn3x1PRT46qv7VmglLjYmTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954144470588-8vt245il764p06s0l4f4nuasmvumec1i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "954144470588-p856gafbl7uk9t94604shjm5l2jn9oqm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rndrmapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
