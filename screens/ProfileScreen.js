@@ -8,9 +8,9 @@ const ProfileScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>
-                ProfileScreen Logout {user?.email} ?
-            </Text>
+            {/* <Text style={styles.text}>ProfileScreen Logout {user?.email}</Text> */}
+            <Text style={styles.text}>Logout {user?.displayName}</Text>
+
             <FormButton buttonTitle="Logout" onPress={() => logout()} />
         </View>
     );

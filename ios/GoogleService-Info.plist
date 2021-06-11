@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>954144470588-p856gafbl7uk9t94604shjm5l2jn9oqm.apps.googleusercontent.com</string>
+	<string>954144470588-ftioeos3olopirjnftr9970nduuffda4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.954144470588-p856gafbl7uk9t94604shjm5l2jn9oqm</string>
+	<string>com.googleusercontent.apps.954144470588-ftioeos3olopirjnftr9970nduuffda4</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBy6nHDG-9HCuWRe_IKq4_u2XdD-Xvry88</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.rndrmapp</string>
+	<string>com.rnfirebasedb</string>
 	<key>PROJECT_ID</key>
 	<string>test-rn-firebase-8339e</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:954144470588:ios:1dc2684f997cf204853539</string>
+	<string>1:954144470588:ios:fbbb6cf80ce8bb5e853539</string>
 </dict>
 </plist>

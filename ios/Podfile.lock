@@ -234,20 +234,6 @@ PODS:
     - React-Core (= 0.64.2)
     - React-jsi (= 0.64.2)
     - ReactCommon/turbomodule/core (= 0.64.2)
-  - FBSDKCoreKit (9.3.0):
-    - FBSDKCoreKit/Basics (= 9.3.0)
-    - FBSDKCoreKit/Core (= 9.3.0)
-  - FBSDKCoreKit/Basics (9.3.0)
-  - FBSDKCoreKit/Core (9.3.0):
-    - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (9.3.0):
-    - FBSDKLoginKit/Login (= 9.3.0)
-  - FBSDKLoginKit/Login (9.3.0):
-    - FBSDKCoreKit (~> 9.3.0)
-  - FBSDKShareKit (9.3.0):
-    - FBSDKShareKit/Share (= 9.3.0)
-  - FBSDKShareKit/Share (9.3.0):
-    - FBSDKCoreKit (~> 9.3.0)
   - Firebase/Auth (8.0.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 8.0.0)
@@ -256,9 +242,6 @@ PODS:
   - Firebase/Firestore (8.0.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 8.0.0)
-  - Firebase/Storage (8.0.0):
-    - Firebase/CoreOnly
-    - FirebaseStorage (~> 8.0.0)
   - FirebaseAuth (8.0.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -285,9 +268,6 @@ PODS:
     - "gRPC-C++ (~> 1.28.0)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 2.30908.0)
-  - FirebaseStorage (8.0.0):
-    - FirebaseCore (~> 8.0)
-    - GTMSessionFetcher/Core (~> 1.5)
   - Flipper (0.75.1):
     - Flipper-Folly (~> 2.5)
     - Flipper-RSocket (~> 1.3)
@@ -588,20 +568,6 @@ PODS:
     - React-jsi (= 0.64.2)
     - React-perflogger (= 0.64.2)
   - React-jsinspector (0.64.2)
-  - react-native-fbsdk-next (4.3.0):
-    - React-Core
-    - react-native-fbsdk-next/Core (= 4.3.0)
-    - react-native-fbsdk-next/Login (= 4.3.0)
-    - react-native-fbsdk-next/Share (= 4.3.0)
-  - react-native-fbsdk-next/Core (4.3.0):
-    - FBSDKCoreKit (~> 9.3)
-    - React-Core
-  - react-native-fbsdk-next/Login (4.3.0):
-    - FBSDKLoginKit (~> 9.3)
-    - React-Core
-  - react-native-fbsdk-next/Share (4.3.0):
-    - FBSDKShareKit (~> 9.3)
-    - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
   - React-perflogger (0.64.2)
@@ -683,24 +649,11 @@ PODS:
     - Firebase/Firestore (= 8.0.0)
     - React-Core
     - RNFBApp
-  - RNFBStorage (12.0.0):
-    - Firebase/Storage (= 8.0.0)
-    - React-Core
-    - RNFBApp
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNGoogleSignin (6.0.0):
     - GoogleSignIn (~> 5.0.0)
     - React-Core
-  - RNImageCropPicker (0.36.2):
-    - React-Core
-    - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.36.2)
-    - TOCropViewController
-  - RNImageCropPicker/QBImagePickerController (0.36.2):
-    - React-Core
-    - React-RCTImage
-    - TOCropViewController
   - RNReanimated (2.2.0):
     - DoubleConversion
     - FBLazyVector
@@ -735,7 +688,6 @@ PODS:
     - React-RCTImage
   - RNVectorIcons (8.1.0):
     - React-Core
-  - TOCropViewController (2.6.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -777,7 +729,6 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
-  - react-native-fbsdk-next (from `../node_modules/react-native-fbsdk-next`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -796,10 +747,8 @@ DEPENDENCIES:
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
-  - "RNFBStorage (from `../node_modules/@react-native-firebase/storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - "RNGoogleSignin (from `../node_modules/@react-native-google-signin/google-signin`)"
-  - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -812,15 +761,11 @@ SPEC REPOS:
     - boost-for-react-native
     - BoringSSL-GRPC
     - CocoaAsyncSocket
-    - FBSDKCoreKit
-    - FBSDKLoginKit
-    - FBSDKShareKit
     - Firebase
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
-    - FirebaseStorage
     - Flipper
     - Flipper-DoubleConversion
     - Flipper-Folly
@@ -840,7 +785,6 @@ SPEC REPOS:
     - nanopb
     - OpenSSL-Universal
     - PromisesObjC
-    - TOCropViewController
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -874,8 +818,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
-  react-native-fbsdk-next:
-    :path: "../node_modules/react-native-fbsdk-next"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -912,14 +854,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/auth"
   RNFBFirestore:
     :path: "../node_modules/@react-native-firebase/firestore"
-  RNFBStorage:
-    :path: "../node_modules/@react-native-firebase/storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNGoogleSignin:
     :path: "../node_modules/@react-native-google-signin/google-signin"
-  RNImageCropPicker:
-    :path: "../node_modules/react-native-image-crop-picker"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -937,16 +875,12 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: e686045572151edef46010a6f819ade377dfeb4b
-  FBReactNativeSpec: 53ba362696ea75c18041b567ea482d6a6e8398d4
-  FBSDKCoreKit: 0d1ae58388a458b8222f72025804cdc84eb5d0c3
-  FBSDKLoginKit: aea68df6121c5e165ccae2fabfdc83c4644ee40f
-  FBSDKShareKit: 70889c97c62f0c6b3ccb8b999e73a85f19024001
+  FBReactNativeSpec: e6a728003226e2f008fc483c6595202ae88734f0
   Firebase: 73c3e3b216ec1ecbc54d2ffdd4670c65c749edb1
   FirebaseAuth: b8cd992fca5b53dc6eec09e873a3f375f000c5a1
   FirebaseCore: 3f09591d51292843e2a46f18358d60bf4e996255
   FirebaseCoreDiagnostics: 3e249cee3de5c5f9cfd6cc2a19997231286fec11
   FirebaseFirestore: 7f6576eaca9f821e864c3e917d68aa99f4e6b613
-  FirebaseStorage: 61bcd27880fa17362f68be67d3683d04bfd7b1c7
   Flipper: d3da1aa199aad94455ae725e9f3aa43f3ec17021
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: 755929a4f851b2fb2c347d533a23f191b008554c
@@ -978,7 +912,6 @@ SPEC CHECKSUMS:
   React-jsi: 67747b9722f6dab2ffe15b011bcf6b3f2c3f1427
   React-jsiexecutor: 80c46bd381fd06e418e0d4f53672dc1d1945c4c3
   React-jsinspector: cc614ec18a9ca96fd275100c16d74d62ee11f0ae
-  react-native-fbsdk-next: 19e974b071047b7ed1dad86a9dc3fe77dff76b8c
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
   React-perflogger: 25373e382fed75ce768a443822f07098a15ab737
   React-RCTActionSheet: af7796ba49ffe4ca92e7277a5d992d37203f7da5
@@ -997,17 +930,14 @@ SPEC CHECKSUMS:
   RNFBApp: cc2ff3f925840c53f0117d92e0f5e269b356d0f7
   RNFBAuth: 6853dd2d92ed8635831679b695a6690151ae6b77
   RNFBFirestore: a709273bc1c35525a18a6e60b3893866754c194b
-  RNFBStorage: e26d1e8e5c35ac82ebb70f375006f5528e4988ce
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNGoogleSignin: 111fd4792913208f338fe3178005f7a22e490ff9
-  RNImageCropPicker: 35a3ceb837446fa11547704709bb22b5fac6d584
   RNReanimated: 9c13c86454bfd54dab7505c1a054470bfecd2563
   RNScreens: bf59f17fbf001f1025243eeed5f19419d3c11ef2
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
-  TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: 575c581c63e0d35c9a83f4b46d01d63abc1100ac
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 71a21ca3ab8728cfaf0e4a24d6d62e910ff09aae
+PODFILE CHECKSUM: 9739a1bd5424cdb7a8940a003fc3e74f2190e357
 
 COCOAPODS: 1.10.1

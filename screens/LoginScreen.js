@@ -13,7 +13,7 @@ const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
-    const { login } = useContext(AuthContext);
+    const { login, googleLogin } = useContext(AuthContext);
 
     return (
         <View style={styles.container}>
@@ -50,18 +50,18 @@ const LoginScreen = ({ navigation }) => {
             </TouchableOpacity>
 
             <SocialButton
-                buttonTitle="Sign Up with Facebook"
-                btnType="facebook"
-                color="#4867aa"
-                backgroundColor="#e6eaf4"
-                onPress={() => { }}
-            />
-
-            <SocialButton
                 buttonTitle="Sign Up with Google"
                 btnType="google"
                 color="#de4d41"
                 backgroundColor="#f5e7ea"
+                onPress={() => googleLogin()}
+            />
+
+            <SocialButton
+                buttonTitle="Sign Up with Facebook"
+                btnType="facebook"
+                color="#4867aa"
+                backgroundColor="#e6eaf4"
                 onPress={() => { }}
             />
 

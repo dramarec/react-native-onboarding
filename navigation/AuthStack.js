@@ -10,7 +10,11 @@ import OnboardingSreen from '../screens/OnboardingSreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { API_WEB_ClINT } from '@env';
+
 const App = () => {
+    console.log('🔥🚀 ===> API_WEB_ClINT', API_WEB_ClINT);
     const [isFirstLaunch, setIsFirstLaunch] = useState(null);
 
     let routeName;
@@ -24,6 +28,7 @@ const App = () => {
                 setIsFirstLaunch(false);
             }
         });
+        GoogleSignin.configure({ webClientId: `${API_WEB_ClINT}` });
     }, []);
 
     if (isFirstLaunch === null) {
@@ -58,6 +63,7 @@ const App = () => {
                         elevation: 0,
                     },
                     headerLeft: () => (
+                        // eslint-disable-next-line react-native/no-inline-styles
                         <View style={{ marginLeft: 10 }}>
                             <FontAwesome.Button
                                 name="long-arrow-left"

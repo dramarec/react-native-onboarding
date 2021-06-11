@@ -4,9 +4,12 @@ import { AuthContext } from '../navigation/AuthProvider';
 
 const HomeScreen = () => {
     const { user } = useContext(AuthContext);
+
+    console.log('🔥🚀 ===> HomeScreen ===> user', user);
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Welcome {user?.email}</Text>
+            <Text style={styles.text}>Welcome {user?.displayName}</Text>
         </View>
     );
 };
