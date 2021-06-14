@@ -1,5 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 import FormInput from '../components/FormInput';
@@ -7,11 +8,10 @@ import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
 import { AuthContext } from '../navigation/AuthProvider';
 
-// import AntDesign from 'react-native-vector-icons/AntDesign';
+import { Formik } from 'formik';
+import { loginValidationSchema } from '../utils/validation';
 
 const LoginScreen = ({ navigation }) => {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
 
     const { login, googleLogin } = useContext(AuthContext);
 
@@ -21,30 +21,68 @@ const LoginScreen = ({ navigation }) => {
                 source={require('../assets/rn-social-logo.png')}
                 style={styles.logo}
             />
-            <Text style={styles.text}>RN Social App</Text>
+            <Text style={styles.text}>Social App</Text>
 
-            <FormInput
-                labelValue={email}
-                onChangeText={userEmail => setEmail(userEmail)}
-                placeholderText="Email"
-                iconType="user"
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-            />
+            <Formik
+                validationSchema={loginValidationSchema}
+                initialValues={{ email: '', password: '' }}
+                onSubmit={(values, actions) => login(values, actions)}
+            >
+                {({
+                    values,
+                    handleChange,
+                    errors,
+                    setFieldTouched,
+                    touched,
+                    isValid,
+                    handleSubmit,
+                    handleBlur,
+                }) => (
+                    <>
+                        <FormInput
+                            name="email"
+                            labelValue={values.email}
+                            // onChangeText={userEmail => setEmail(userEmail)}
+                            onChangeText={handleChange('email')}
+                            placeholder="Email"
+                            iconType="user"
+                            keyboardType="email-address"
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                        // onBlur={() => setFieldTouched('email')}
+                        // onBlur={handleBlur('email')}
 
-            <FormInput
-                labelValue={password}
-                onChangeText={userPassword => setPassword(userPassword)}
-                placeholderText="Password"
-                iconType="lock"
-                secureTextEntry={true}
-            />
+                        />
+                        {touched.email && errors.email &&
+                            <Text style={{ fontSize: 12, color: '#FF0D10', marginTop: -10, marginBottom: -3 }}>{errors.email}</Text>
+                        }
 
-            <FormButton
-                buttonTitle="Sign In"
-                onPress={() => login(email, password)}
-            />
+                        <FormInput
+                            name="password"
+                            labelValue={values.password}
+                            onChangeText={handleChange('password')}
+                            placeholderText="Password"
+                            iconType="lock"
+                            onBlur={handleBlur('password')}
+                        />
+
+                        {touched.password && errors.password &&
+                            <Text style={{ fontSize: 12, color: '#FF0D10', marginTop: -8, marginBottom: -7 }}>{errors.password}</Text>
+                        }
+
+                        <Text style={{ color: 'red' }}>{errors.general}</Text>
+                        <FormButton
+                            buttonTitle="Sign In"
+                            // onPress={() => login(email, password)}
+                            onPress={handleSubmit}
+                            disabled={!isValid}
+
+                        />
+                    </>
+                )}
+            </Formik >
+
+
             <TouchableOpacity style={styles.forgotButton} onPress={() => { }}>
                 <Text style={styles.navButtonText}>Forgot Password?</Text>
             </TouchableOpacity>
@@ -72,7 +110,7 @@ const LoginScreen = ({ navigation }) => {
                     Don't have an acount? Create here
                 </Text>
             </TouchableOpacity>
-        </View>
+        </View >
     );
 };
 

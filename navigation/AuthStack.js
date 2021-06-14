@@ -6,15 +6,14 @@ const Stack = createStackNavigator();
 import AsyncStorage from '@react-native-community/async-storage';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import OnboardingSreen from '../screens/OnboardingSreen';
+import OnboardingScreen from '../screens/OnboardingScreen';
 import LoginScreen from '../screens/LoginScreen';
-import SignupScreen from '../screens/SignupScreen';
+import SignupScreen from '../screens/RegScreen';
 
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { API_WEB_ClINT } from '@env';
 
 const App = () => {
-    console.log('🔥🚀 ===> API_WEB_ClINT', API_WEB_ClINT);
     const [isFirstLaunch, setIsFirstLaunch] = useState(null);
 
     let routeName;
@@ -43,7 +42,7 @@ const App = () => {
         <Stack.Navigator initialRouteName={routeName}>
             <Stack.Screen
                 name="Onboarding"
-                component={OnboardingSreen}
+                component={OnboardingScreen}
                 options={{ header: () => null }}
             />
             <Stack.Screen

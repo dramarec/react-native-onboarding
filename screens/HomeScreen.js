@@ -9,7 +9,6 @@ const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Welcome {user?.email}</Text>
-            <Text style={styles.text}>Welcome {user?.displayName}</Text>
         </View>
     );
 };

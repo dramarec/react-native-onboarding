@@ -1,23 +1,50 @@
-import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import { windowHeight, windowWidth } from '../utils/Dimentions';
+/* eslint-disable react-native/no-inline-styles */
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { windowHeight, windowWidth } from '../utils/Dimensions';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
 
-const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
+const FormInput = ({
+    iconType,
+    labelValue,
+    placeholderText,
+    secureTextEntry,
+    name,
+    ...rest
+}) => {
+    const [data, setData] = useState({ secureTextEntry: true });
+
+    const updateSecureTextEntry = () => {
+        setData({ ...data, secureTextEntry: !data.secureTextEntry });
+    };
+
     return (
         <View style={styles.inputContainer}>
             <View style={styles.iconStyle}>
-                <AntDesign name={iconType} size={25} color="#555" />
+                <AntDesign name={iconType} size={25} color="#2e64e5" />
             </View>
             <TextInput
-                value={labelValue}
                 style={styles.input}
-                numberOfLines={1}
+                value={labelValue}
                 placeholder={placeholderText}
+                numberOfLines={1}
                 placeholderTextColor="#555"
+                secureTextEntry={data.secureTextEntry ? true : false}
                 {...rest}
             />
+            {name === 'password' && (
+                <TouchableOpacity
+                    style={{ marginRight: 10 }}
+                    onPress={updateSecureTextEntry}>
+                    {data.secureTextEntry ? (
+                        <Feather name="eye-off" color="grey" size={20} />
+                    ) : (
+                        <Feather name="eye" color="grey" size={20} />
+                    )}
+                </TouchableOpacity>
+            )}
         </View>
     );
 };

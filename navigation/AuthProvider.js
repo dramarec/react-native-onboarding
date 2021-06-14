@@ -4,7 +4,7 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-
+//https://reactjs.org/docs/context.html
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -15,7 +15,8 @@ export const AuthProvider = ({ children }) => {
             value={{
                 user,
                 setUser,
-                register: async (email, password) => {
+                register: async (values, actions) => {
+                    const { email, password } = values;
                     try {
                         await auth().createUserWithEmailAndPassword(email, password)
                             .then(() => {
@@ -36,23 +37,31 @@ export const AuthProvider = ({ children }) => {
                                         );
                                     });
                             });
-                    } catch (e) {
-                        console.log(e);
+                    } catch (err) {
+                        console.log('🔥🚀 ===> login: ===> err', err);
+                        actions.setFieldError('general', err.message.slice(28));
+                    } finally {
+                        actions.setSubmitting(false);
                     }
                 },
-                login: async (email, password) => {
+                login: async (values, actions) => {
+                    const { email, password } = values;
                     try {
                         await auth().signInWithEmailAndPassword(email, password);
-                    } catch (e) {
-                        console.log(e);
+                    } catch (err) {
+                        console.log('🔥🚀 ===> login: ===> err', err.message.slice(22));
+                        actions.setFieldError('general', err.message.slice(22));
+                    } finally {
+                        actions.setSubmitting(false);
                     }
                 },
                 logout: async () => {
                     try {
                         await auth().signOut();
-                    } catch (e) {
-                        console.log(e);
+                    } catch (err) {
+                        console.log('🔥🚀 ===> logout: ===> err', err);
                     }
+
                 },
                 googleLogin: async () => {
                     try {
@@ -66,56 +75,23 @@ export const AuthProvider = ({ children }) => {
                         // Sign-in the user with the credential
                         await auth().signInWithCredential(googleCredential);
                     } catch (err) {
-                        console.log(err);
+                        console.log('🔥🚀 ===> googleLogin: ===> err', err);
+                    }
+                },
+                // firestore
+                createNewUser: async userData => {
+                    try {
+                        await firestore()
+                            .collection('users')
+                            .doc(`${userData.uid}`)
+                            .set(userData);
+
+                    } catch (err) {
+                        console.log('🔥🚀 ===> AuthProvider ===> err', err);
                     }
                 },
             }}>
             {children}
-        </AuthContext.Provider>
+        </AuthContext.Provider >
     );
 };
-// import React, { createContext, useState } from 'react';
-// import auth from '@react-native-firebase/auth';
-
-// export const AuthContext = createContext();
-
-// export const AuthProvider = ({ children }) => {
-//     const [user, setUser] = useState(null);
-
-//     return (
-//         <AuthContext.Provider
-//             value={{
-//                 user,
-//                 setUser,
-//                 login: async (email, password) => {
-//                     try {
-//                         await auth().signInWithEmailAndPassword(
-//                             email,
-//                             password,
-//                         );
-//                     } catch (e) {
-//                         console.log(e);
-//                     }
-//                 },
-//                 register: async (email, password) => {
-//                     try {
-//                         await auth().createUserWithEmailAndPassword(
-//                             email,
-//                             password,
-//                         );
-//                     } catch (e) {
-//                         console.log(e);
-//                     }
-//                 },
-//                 logout: async () => {
-//                     try {
-//                         await auth().signOut();
-//                     } catch (e) {
-//                         console.log(e);
-//                     }
-//                 },
-//             }}>
-//             {children}
-//         </AuthContext.Provider>
-//     );
-// };
